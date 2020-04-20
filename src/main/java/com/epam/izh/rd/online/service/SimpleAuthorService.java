@@ -6,6 +6,13 @@ import com.epam.izh.rd.online.repository.AuthorRepository;
 public class SimpleAuthorService implements AuthorService {
     private AuthorRepository authorRepository;
 
+    public SimpleAuthorService() {
+    }
+
+    public SimpleAuthorService(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
+
     @Override
     public boolean save(Author author) {
         return false;
@@ -26,10 +33,4 @@ public class SimpleAuthorService implements AuthorService {
         return 0;
     }
 
-    public SimpleAuthorService() {
-    }
-
-    public SimpleAuthorService(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
-    }
 }
