@@ -41,7 +41,6 @@ public class SimpleSchoolBookRepository implements BookRepository {
         }
         // возможны ли разные книги с совпадающими именами?? если нет, то можно упростить последнее действие
         // возвращаю массив foundSchoolBooks
-        //return new Book[0];
         return foundSchoolBooks;
     }
 
@@ -76,11 +75,6 @@ public class SimpleSchoolBookRepository implements BookRepository {
 
     @Override
     public int count() {
-        /**
-         * Метод возвращает количество сохраненных сущностей в массиве schoolBooks.
-         */
-//        System.out.println(schoolBooks.toString());
-//        System.out.println(schoolBooks.length);
         return schoolBooks.length;
     }
 }

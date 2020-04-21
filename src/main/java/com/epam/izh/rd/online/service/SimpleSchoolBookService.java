@@ -46,13 +46,7 @@ public class SimpleSchoolBookService implements BookService {
 
     @Override
     public int count() {
-        /**
-         * Метод должен возвращать количество всех книг.
-         * <p>
-         * По факту, он просто обращается к репозиторию с книгами и вызывает аналогичный метод, псоле чего возвращает результат.
-         */
         return schoolBookBookRepository.count();
-//        return 0;
     }
 
     @Override
