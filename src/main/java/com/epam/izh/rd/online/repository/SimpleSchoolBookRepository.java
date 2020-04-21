@@ -19,12 +19,6 @@ public class SimpleSchoolBookRepository implements BookRepository {
 
     @Override
     public Book[] findByName(String name) {
-        /**
-         * Метод должен находить в массиве schoolBooks все книги по имени.
-         * <p>
-         * Если книги найдены - метод должен их вернуть.
-         * Если найденных по имени книг нет, должен вернуться пустой массив.
-         */
         //сколько книг с названием name в массиве schoolBooks?
         // создаю переменную bookCount = 0
         int bookCount = 0;

@@ -16,16 +16,12 @@ public class SimpleAuthorService implements AuthorService {
 
     @Override
     public boolean save(Author author) {
-        /**
-         * Метод должен сохранять автора.
-         * По факту, он просто обращается к репозиторию с авторами и вызывает аналогичный метод, псоле чего возвращает результат.
-         */
         return authorRepository.save(author);
     }
 
     @Override
     public Author findByFullName(String name, String lastname) {
-        return null;
+        return authorRepository.findByFullName(name, lastname);
     }
 
     @Override
