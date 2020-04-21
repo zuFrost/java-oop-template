@@ -8,7 +8,17 @@ public class SimpleSchoolBookRepository implements BookRepository {
 
     @Override
     public boolean save(Book book) {
-        return false;
+        // создаю временный массив +1 элемент
+        SchoolBook[] tempSchoolBooksArray = new SchoolBook[schoolBooks.length + 1];
+        // копирую в него существующий
+        System.arraycopy(schoolBooks, 0, tempSchoolBooksArray, 0, schoolBooks.length);
+        // кладу book в последний элемент нового массива
+        tempSchoolBooksArray[schoolBooks.length] = (SchoolBook) book;
+        // присваиваю ссылку на новый временный массив переменной schoolBooks
+        schoolBooks = tempSchoolBooksArray;
+        tempSchoolBooksArray = null;
+        // Если сохранение прошло успешно, метод должен вернуть true
+        return true;
     }
 
     @Override
