@@ -4,7 +4,7 @@ import com.epam.izh.rd.online.entity.Author;
 import com.epam.izh.rd.online.repository.AuthorRepository;
 
 public class SimpleAuthorService implements AuthorService {
-    private AuthorRepository authorRepository;
+    private AuthorRepository authorRepository; //это репозиторий к котормоу вы будете обращаться в методах
 
     public SimpleAuthorService() {
     }
@@ -15,7 +15,11 @@ public class SimpleAuthorService implements AuthorService {
 
     @Override
     public boolean save(Author author) {
-        return false;
+        /**
+         * Метод должен сохранять автора.
+         * По факту, он просто обращается к репозиторию с авторами и вызывает аналогичный метод, псоле чего возвращает результат.
+         */
+        return authorRepository.save(author);
     }
 
     @Override
