@@ -52,6 +52,11 @@ public class SimpleSchoolBookRepository implements BookRepository {
 
     @Override
     public int count() {
-        return 0;
+        /**
+         * Метод возвращает количество сохраненных сущностей в массиве schoolBooks.
+         */
+//        System.out.println(schoolBooks.toString());
+//        System.out.println(schoolBooks.length);
+        return schoolBooks.length;
     }
 }

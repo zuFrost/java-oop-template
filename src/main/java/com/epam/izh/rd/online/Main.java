@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Main {
 
     public static void main(String[] args) {
-        Author esenin = new Author();
+        /*Author esenin = new Author();
         LocalDate date = LocalDate.of(1895, 10, 03);
         esenin.setBirthdate(date);
         esenin.setCountry("Russia");
@@ -25,7 +25,11 @@ public class Main {
         esenin_s.setName("Sergey_s");
         esenin_s.setLastName("Esenin");
         simpleAuthorRepository.save(esenin_s);
-        System.out.println(simpleAuthorRepository.count());
+        System.out.println(simpleAuthorRepository.count());*/
+
+
+
+
 
 
     }
