@@ -6,8 +6,8 @@ import com.epam.izh.rd.online.entity.SchoolBook;
 import com.epam.izh.rd.online.repository.BookRepository;
 
 public class SimpleSchoolBookService implements BookService {
-    private BookRepository<SchoolBook> schoolBookBookRepository;
-    private AuthorService authorService;
+    private BookRepository<SchoolBook> schoolBookBookRepository; //это репозиторий книг к которому вы будете обращаться в методах
+    private AuthorService authorService; // это сервис для работы с авторами к которому  вы будете обращаться в методах
 
     public SimpleSchoolBookService() {
     }
@@ -18,9 +18,7 @@ public class SimpleSchoolBookService implements BookService {
     }
 
     @Override
-    public boolean save(Book book) {
-        return false;
-    }
+    public boolean save(Book book) { return false; }
 
     @Override
     public Book[] findByName(String name) {
