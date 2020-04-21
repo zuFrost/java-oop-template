@@ -48,9 +48,6 @@ public class SimpleAuthorRepository implements AuthorRepository{
 
     @Override
     public int count() {
-        /**
-         * Метод возвращает количество сохраненных сущностей в массиве authors.
-         */
         return authors.length;
     }
 }

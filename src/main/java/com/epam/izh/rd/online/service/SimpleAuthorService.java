@@ -35,12 +35,7 @@ public class SimpleAuthorService implements AuthorService {
 
     @Override
     public int count() {
-        /**
-         * Метод считать количество сохраненных авторов на текущий момент.
-         * По факту, он просто обращается к репозиторию с авторами и вызывает аналогичный метод, псоле чего возвращает результат.
-         */
-        SimpleAuthorRepository simpleAuthorRepository = new SimpleAuthorRepository();
-        return simpleAuthorRepository.count();
+        return authorRepository.count();
     }
 
 }
