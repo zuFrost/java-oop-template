@@ -57,6 +57,11 @@ public class SimpleSchoolBookService implements BookService {
 
     @Override
     public Author findAuthorByBookName(String name) {
-        return null;
+        // name - название книги
+        // найти книгу по названию в репозитории книг
+        String tempAuthorlastName = schoolBookBookRepository.findByName(name)[0].getAuthorLastName();
+        String tempAuthorName = schoolBookBookRepository.findByName(name)[0].getAuthorName();
+        // найти автора по имени и фамилии
+        return authorService.findByFullName(tempAuthorName, tempAuthorlastName);
     }
 }
