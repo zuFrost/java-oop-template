@@ -24,13 +24,15 @@ public class SimpleAuthorRepository implements AuthorRepository{
         //1 - проверка на отсутствие автора в массиве authors автора author методом findByFullName
         //true автор отсутствует - увеличение размера массива и добавление автора. return true.
         //false автор присутствует - return false
-        boolean noAuthorInArray = true;
+
+        boolean noAuthorInArray = true; //Флаг проверки. Автора нет в массиве.
         for (Author element: authors) {
             if (findByFullName(author.getName(), author.getLastName()).equals(findByFullName(element.getName(), element.getLastName()))) {
+
                 noAuthorInArray = false;
             }
         }
-        if(noAuthorInArray ) { /* реализация проверки на отсутствие author в массиве authors методом findByFullName*/
+        if(noAuthorInArray ) {  //реализация проверки на отсутствие author в массиве authors методом findByFullName
             //увеличение размера массива
             //создаю массив tempAuthors типа Author[] размером authors.length + 1
             Author[] tempAuthors = new Author[authors.length + 1];
@@ -45,10 +47,17 @@ public class SimpleAuthorRepository implements AuthorRepository{
         } else {
             return false;
         }
+
+        /*Author[] tempAuthors = new Author[1];
+        System.arraycopy(authors,0, tempAuthors, 0, authors.length);
+        tempAuthors[tempAuthors.length-1] = author;
+        authors = tempAuthors;
+        return true;*/
     }
 
     @Override
     public Author findByFullName(String name, String lastname) {
+
         return null;
     }
 
@@ -59,6 +68,9 @@ public class SimpleAuthorRepository implements AuthorRepository{
 
     @Override
     public int count() {
-        return 0;
+        /**
+         * Метод возвращает количество сохраненных сущностей в массиве authors.
+         */
+        return authors.length;
     }
 }
