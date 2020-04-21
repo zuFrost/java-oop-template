@@ -41,7 +41,7 @@ public class SimpleSchoolBookService implements BookService {
 
     @Override
     public boolean removeByName(String name) {
-        return false;
+        return schoolBookBookRepository.removeByName(name);
     }
 
     @Override
