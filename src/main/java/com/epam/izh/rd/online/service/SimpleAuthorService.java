@@ -2,6 +2,7 @@ package com.epam.izh.rd.online.service;
 
 import com.epam.izh.rd.online.entity.Author;
 import com.epam.izh.rd.online.repository.AuthorRepository;
+import com.epam.izh.rd.online.repository.SimpleAuthorRepository;
 
 public class SimpleAuthorService implements AuthorService {
     private AuthorRepository authorRepository; //это репозиторий к котормоу вы будете обращаться в методах
@@ -34,7 +35,12 @@ public class SimpleAuthorService implements AuthorService {
 
     @Override
     public int count() {
-        return 0;
+        /**
+         * Метод считать количество сохраненных авторов на текущий момент.
+         * По факту, он просто обращается к репозиторию с авторами и вызывает аналогичный метод, псоле чего возвращает результат.
+         */
+        SimpleAuthorRepository simpleAuthorRepository = new SimpleAuthorRepository();
+        return simpleAuthorRepository.count();
     }
 
 }
