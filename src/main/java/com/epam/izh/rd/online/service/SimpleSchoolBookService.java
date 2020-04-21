@@ -36,7 +36,7 @@ public class SimpleSchoolBookService implements BookService {
 
     @Override
     public int getNumberOfBooksByName(String name) {
-        return 0;
+        return schoolBookBookRepository.findByName(name).length;
     }
 
     @Override
