@@ -43,7 +43,30 @@ public class SimpleAuthorRepository implements AuthorRepository{
 
     @Override
     public boolean remove(Author author) {
-        return false;
+        String tempAuthorName = author.getName();
+        String tempAuthorLastName = author.getLastName();
+
+        if (findByFullName(author.getName(), author.getLastName()) != null) {
+            //автор есть в массиве авторов
+            //создаю временный массив на 1 элемент меньше чем authors
+            Author[] tempSmallAuthors = new Author[authors.length - 1];
+            int tempSmallAuthorsArrayCounter = 0;
+            for (int i = 0; i < authors.length; i++) {
+                if (authors[i].equals(author)) {
+                    //пропускаю элемент массива при копировании
+                } else {
+                    //копирую элементы массива
+                    tempSmallAuthors[tempSmallAuthorsArrayCounter] = authors[i];
+                    tempSmallAuthorsArrayCounter++;
+                }
+            }
+            //меняю ссылку на новый массив
+            authors = tempSmallAuthors;
+            return true;
+        } else {
+            //автора нет в массиве
+            return false;
+        }
     }
 
     @Override

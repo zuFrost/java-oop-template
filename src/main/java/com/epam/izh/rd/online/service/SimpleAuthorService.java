@@ -26,7 +26,7 @@ public class SimpleAuthorService implements AuthorService {
 
     @Override
     public boolean remove(Author author) {
-        return false;
+        return authorRepository.remove(author);
     }
 
     @Override
