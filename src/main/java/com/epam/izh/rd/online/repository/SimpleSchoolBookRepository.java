@@ -8,11 +8,11 @@ public class SimpleSchoolBookRepository implements BookRepository {
 
     @Override
     public boolean save(Book book) {
-        SchoolBook[] tempSchoolBooks = new SchoolBook[schoolBooks.length+1];
-        for (int i = 0; i <schoolBooks.length ; i++) {
+        SchoolBook[] tempSchoolBooks = new SchoolBook[schoolBooks.length + 1];
+        for (int i = 0; i < schoolBooks.length; i++) {
             tempSchoolBooks[i] = schoolBooks[i];
         }
-        tempSchoolBooks[tempSchoolBooks.length-1] = (SchoolBook) book;
+        tempSchoolBooks[tempSchoolBooks.length - 1] = (SchoolBook) book;
         schoolBooks = tempSchoolBooks;
         return true;
     }
@@ -47,18 +47,6 @@ public class SimpleSchoolBookRepository implements BookRepository {
 
     @Override
     public boolean removeByName(String name) {
-        /**
-         * Метод должен удалять книги из массива schoolBooks по названию.
-         * Если книг с одинаковым названием в массиве несколько, метод должен удалить их все.
-         * <p>
-         * Важно: при удалении книги из массива размер массива должен уменьшиться!
-         * То есть, если мы сохранили 2 разные книги и вызвали count() (метод ниже), то он должен вернуть 2.
-         * Если после этого мы удалили 1 книгу, метод count() должен вернуть 1.
-         * <p>
-         * Если хотя бы одна книга была найдена и удалена, метод должен вернуть true, в противном случае,
-         * если книга не была найдена, метод должен вернуть false.
-         */
-
         //сколько книг с названием name в массиве schoolBooks?
         int bookCounter = 0; // счетчик количества книг с названием name в массиве.
         for (int i = 0; i < schoolBooks.length; i++) {
@@ -69,10 +57,17 @@ public class SimpleSchoolBookRepository implements BookRepository {
         if (bookCounter > 0) { // книги есть в количестве bookCounter
             //создаю массив размером schoolBooks - bookCounter
             SchoolBook[] smallSchoolBooks = new SchoolBook[schoolBooks.length - bookCounter];
-            for (int i = 0; i < schoolBooks.l; i++) {// недописаная строка
+            int smallSchoolBooksArrayCounter = 0;
+            for (int i = 0; i < schoolBooks.length; i++) {// нахожу в массиве элементы совпадающие с name и пропускаю их при копировании массивов
+                if (schoolBooks[i].getName().equals(name)) {
+                    continue;
+                } else {
+                    smallSchoolBooks[smallSchoolBooksArrayCounter] = schoolBooks[i];
+                    smallSchoolBooksArrayCounter++;
+                }
 
             }
-
+            schoolBooks = smallSchoolBooks;
             return true;
         } else { // в массиве нет книги с названием name
             return false;
